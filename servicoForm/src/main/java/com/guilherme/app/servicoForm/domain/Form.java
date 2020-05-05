@@ -18,10 +18,13 @@ public class Form {
     private Long id;
 
     @Column(name = "DS_NAME_FORM", length = 35)
-    private String nameForm;
+    private String name;
 
     @Column(name = "DS_FORM_DESCRIPTION")
-    private String descriptionForm;
+    private String description;
+
+    @Column(name = "DS_LINK")
+    private String link;
 
     @Column(name = "NU_TIME")
     private Long time;

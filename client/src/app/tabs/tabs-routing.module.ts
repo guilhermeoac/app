@@ -13,22 +13,22 @@ const routes: Routes = [
       },
       {
         path: 'tab2',
-        loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+        loadChildren: () => import('../view/form/detail/detail-form.module').then(m => m.DetailFormModule)
       },
       {
         path: 'tab3',
-        loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+        loadChildren: () => import('../view/form/list/list-form.module').then(m => m.ListFormModule)
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '',
     pathMatch: 'full'
   }
 ];

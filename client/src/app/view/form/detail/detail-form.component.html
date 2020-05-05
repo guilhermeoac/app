@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Cadastro de formulario</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="'list-form'"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="detailForm" (ngSubmit)="onSubmit(detailForm)">
+    <ion-item>
+      <ion-label position="floating">Nome*</ion-label>
+      <ion-input autocapitalize="on" name="name" formControlName="name"  [required]="true"></ion-input>
+    </ion-item>
+    <div *ngIf="detailForm.controls.name.errors && detailForm.controls.name.touched" class="invalid-field">
+      <p *ngIf="detailForm.controls.name.errors.required">Campo obrigatório</p>
+    </div>
+    <ion-item>
+      <ion-label position="floating">Descrição*</ion-label>
+      <ion-input autocapitalize="on" name="description" formControlName="description"  [required]="true"></ion-input>
+    </ion-item>
+      <div *ngIf="detailForm.controls.description.errors && detailForm.controls.description.touched" class="invalid-field">
+        <p *ngIf="detailForm.controls.description.errors.required">Campo obrigatório</p>
+      </div>
+    <ion-item>
+      <ion-label position="floating">Tempo de Preenchimento</ion-label>
+      <ion-input type="number" autocapitalize="on" name="time" formControlName="time" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Link*</ion-label>
+    <ion-input autocapitalize="on" name="link" formControlName="link"  [required]="true"></ion-input>
+    </ion-item>
+    <div *ngIf="detailForm.controls.link.errors && detailForm.controls.link.touched" class="invalid-field">
+      <p *ngIf="detailForm.controls.link.errors.required">Campo obrigatório</p>
+    </div>
+    <div class="ion-margin-vertical">
+      <ion-button type="submit" color="secondary" expand="block" [disabled]="!detailForm.valid">Salvar</ion-button>
+    </div>
+  </form>
+</ion-content>

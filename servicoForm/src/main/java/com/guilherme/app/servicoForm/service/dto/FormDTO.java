@@ -15,9 +15,11 @@ public class FormDTO implements Serializable {
 
     private Long id;
 
-    private String nameForm;
+    private String name;
 
-    private String descriptionForm;
+    private String description;
+
+    private String link;
 
     private Long time;
 

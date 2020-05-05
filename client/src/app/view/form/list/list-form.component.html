@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Lista</ion-title>
+    <ion-buttons slot="end">
+      <ion-button type="button" color="secondary" [href]="'detail-form'" expand="block">Cadastrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let form of forms" (click)="selectItem(form)">
+      {{form.name}}
+    </ion-item>
+  </ion-list>
+</ion-content>
