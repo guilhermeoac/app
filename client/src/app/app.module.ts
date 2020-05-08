@@ -13,15 +13,21 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import {ListFormModule} from "./view/form/list/list-form.module";
 import {DetailFormModule} from "./view/form/detail/detail-form.module";
+import {TabsPageModule} from "./tabs/tabs.module";
+import {SharedFormModule} from "./view/share/sharedForm/shared-form.module";
+import {InAppBrowser} from "@ionic-native/in-app-browser/ngx";
+import {UserService} from "./service/user.service";
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [FormsModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, ListFormModule, DetailFormModule],
+  imports: [SharedFormModule, FormsModule, BrowserModule, IonicModule.forRoot(), TabsPageModule, AppRoutingModule, HttpClientModule, ListFormModule, DetailFormModule],
   providers: [
     StatusBar,
     SplashScreen,
     FormService,
+    UserService,
+    InAppBrowser,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

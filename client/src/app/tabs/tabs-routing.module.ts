@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { TabsPage } from './tabs.page';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {TabsPage} from './tabs.page';
 
 const routes: Routes = [
   {
@@ -8,27 +8,23 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
-        loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+        path: 'shared-form',
+        loadChildren: () => import('../view/share/sharedForm/shared-form.module').then(m => m.SharedFormModule)
       },
       {
-        path: 'tab2',
-        loadChildren: () => import('../view/form/detail/detail-form.module').then(m => m.DetailFormModule)
-      },
-      {
-        path: 'tab3',
+        path: 'list-form',
         loadChildren: () => import('../view/form/list/list-form.module').then(m => m.ListFormModule)
       },
       {
         path: '',
-        redirectTo: '',
+        redirectTo: '/tabs/shared-form',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '',
+    redirectTo: '/tabs/shared-form',
     pathMatch: 'full'
   }
 ];

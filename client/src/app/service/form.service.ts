@@ -15,10 +15,18 @@ export class FormService {
     }
 
     findAllFormsByUser(id: number): Observable<any> {
-        return this.http.get(this.resourceUrl);
+        return this.http.get(this.resourceUrl + '/user/' + id);
     }
 
     findById(id: number): Observable<any> {
         return this.http.get(this.resourceUrl + '/' + id);
+    }
+
+    delete(id: number): Observable<any> {
+        return this.http.delete(this.resourceUrl + '/' + id);
+    }
+
+    findAllForms(page: number): Observable<any> {
+        return this.http.get(this.resourceUrl + '/shared/' + page);
     }
 }

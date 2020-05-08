@@ -11,19 +11,11 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class FormDTO implements Serializable {
+public class NameIdDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private Long id;
 
     private String name;
-
-    private String description;
-
-    private String link;
-
-    private Long time;
-
-    private Long userId;
 }

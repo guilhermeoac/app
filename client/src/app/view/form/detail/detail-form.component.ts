@@ -32,7 +32,13 @@ export class DetailFormComponent implements OnInit {
     this.activatedRoute.params.subscribe(params =>{
       if(params['id']){
         this.formService.findById(params['id']).subscribe(resp =>{
-          this.form = resp;
+          this.detailForm = this.formBuilder.group({
+            id: resp.id,
+            name: resp.name,
+            description: resp.description,
+            time: resp.time,
+            link: resp.link
+    });
         })
       }
     })
@@ -43,7 +49,7 @@ export class DetailFormComponent implements OnInit {
     this.form = form.value;
     this.form.userId = 1;
     this.formService.saveForm(this.form).subscribe(resp =>{
-      this.route.navigate(['list-form']);
+      this.route.navigate(['tabs/list-form']);
     });
 
   }

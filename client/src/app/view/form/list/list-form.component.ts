@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {FormModel} from "../../../domain/form.model";
 import {FormService} from "../../../service/form.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {Router} from "@angular/router";
+import {NameIdModel} from "../../../domain/nameId.model";
 
 interface ngOnInit {
 }
@@ -12,13 +12,13 @@ interface ngOnInit {
   styleUrls: ['list-form.component.scss']
 })
 export class ListFormComponent implements OnInit{
-  forms: FormModel[] = [];
+  forms: NameIdModel[] = [];
 
   constructor(private formService: FormService,
               private route: Router) {}
 
   ngOnInit(){
-    this.findAllForms()
+    this.findAllForms();
   }
 
   findAllForms(){
@@ -29,6 +29,13 @@ export class ListFormComponent implements OnInit{
 
   selectItem(form){
     this.route.navigate(['detail-form',form.id]);
+  }
+
+  delete(form){
+    this.formService.delete(form.id).subscribe(resp => {
+      this.findAllForms();
+    })
+
   }
 
 }

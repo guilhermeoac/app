@@ -8,9 +8,12 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-list>
-    <ion-item *ngFor="let form of forms" (click)="selectItem(form)">
-      {{form.name}}
-    </ion-item>
-  </ion-list>
+    <ion-item-sliding *ngFor="let form of forms">
+      <ion-item (click)="selectItem(form)">
+        {{form.name}}
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option (click)="delete(form)" class="delete-slide"><ion-icon name="trash-outline"></ion-icon></ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
 </ion-content>

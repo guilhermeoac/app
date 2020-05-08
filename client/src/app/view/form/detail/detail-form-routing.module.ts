@@ -5,10 +5,6 @@ import {ListFormComponent} from "../list/list-form.component";
 
 const routes: Routes = [
   {
-    path: '',
-    component: ListFormComponent,
-  },
-  {
     path: 'detail-form/:id',
     component: DetailFormComponent,
   },

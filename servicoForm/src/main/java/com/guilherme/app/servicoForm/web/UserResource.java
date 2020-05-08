@@ -1,11 +1,13 @@
 package com.guilherme.app.servicoForm.web;
 
 import com.guilherme.app.servicoForm.service.UserService;
+import com.guilherme.app.servicoForm.service.dto.FormDTO;
 import com.guilherme.app.servicoForm.service.dto.UserDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,7 +23,7 @@ public class UserResource {
     }
 
     @PostMapping()
-    public ResponseEntity<UserDTO> salvar (@RequestBody UserDTO userDTO){
+    public ResponseEntity<UserDTO> salvar(@RequestBody UserDTO userDTO){
         userService.save(userDTO);
         return ResponseEntity.ok(userDTO);
     }
@@ -29,5 +31,11 @@ public class UserResource {
     @GetMapping("/{id}")
     public ResponseEntity<UserDTO> getUserById(@PathVariable Long id) {
         return ResponseEntity.ok().body(userService.findById(id));
+    }
+
+    @PutMapping()
+    public ResponseEntity<FormDTO> updateRank(@RequestBody FormDTO formDTO){
+        userService.updateRank(formDTO);
+        return ResponseEntity.ok(formDTO);
     }
 }
