@@ -38,12 +38,11 @@ export class SharedFormComponent implements OnInit{
   }
 
   openLink(form){
-    const browser = this.inAppBrowser.create(form.link);
-    /*browser.show();
+    const browser = this.inAppBrowser.create(form.link,'_self', {footer: 'yes'});
+    browser.show();
     browser.on("exit").subscribe(resp =>{
       this.registerAnswer(form);
-    });*/
-    this.registerAnswer(form);
+    });
   }
 
   registerAnswer(form: FormModel){

@@ -17,14 +17,14 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/shared-form',
+        redirectTo: 'tabs/shared-form',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/shared-form',
+    redirectTo: 'tabs/shared-form',
     pathMatch: 'full'
   }
 ];

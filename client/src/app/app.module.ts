@@ -21,7 +21,7 @@ import {UserService} from "./service/user.service";
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [SharedFormModule, FormsModule, BrowserModule, IonicModule.forRoot(), TabsPageModule, AppRoutingModule, HttpClientModule, ListFormModule, DetailFormModule],
+  imports: [ FormsModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, DetailFormModule],
   providers: [
     StatusBar,
     SplashScreen,
